@@ -49,6 +49,7 @@ export const AppComponent = ({
   theme,
   themeCanUndo,
   themeCanRedo,
+  resetTheme,
   hasExtension,
   loaderDelayExpired,
   selectedColor,
@@ -94,7 +95,8 @@ export const AppComponent = ({
           undo,
           redo,
           themeCanUndo,
-          themeCanRedo
+          themeCanRedo,
+          resetTheme
         }}
       />
       <PresetThemeSelector {...{ setTheme }} />

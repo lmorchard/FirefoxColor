@@ -123,11 +123,17 @@ setInterval(() => {
   }
 }, PING_PERIOD);
 
+const resetTheme = () => {
+  log('resetTheme');
+  postMessage('resetTheme');
+};
+
 render(
   <Provider store={store}>
     <App {...{
       addonUrl,
       urlEncodeTheme,
+      resetTheme,
       clipboard,
       storage
     }} />

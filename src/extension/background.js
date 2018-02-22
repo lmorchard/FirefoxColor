@@ -35,6 +35,13 @@ const messageListener = port => message => {
       storeTheme({ theme });
       applyTheme({ theme });
       break;
+    case 'resetTheme':
+      log('resetTheme');
+      browser.theme.reset();
+      browser.theme.getCurrent().then(currentTheme => {
+        log('Theme after reset', currentTheme);
+      });
+      break;
     case 'ping':
       port.postMessage({ type: 'pong' });
       break;

@@ -14,7 +14,8 @@ export const UndoRedoButtons = ({
   undo,
   redo,
   themeCanUndo,
-  themeCanRedo
+  themeCanRedo,
+  resetTheme
 }) => (
   <div className="undoRedo">
     <button className={classnames('undo', { disabled: !themeCanUndo })} onClick={undo}>
@@ -23,7 +24,7 @@ export const UndoRedoButtons = ({
     <button className={classnames('redo', { disabled: !themeCanRedo })} onClick={redo}>
       <img src={iconRedo} />
     </button>
-    <button className="reset">
+    <button className="reset" onClick={resetTheme}>
       <img src={iconReset} />
     </button>
   </div>
@@ -39,7 +40,8 @@ export default class ThemeColorsEditor extends React.Component {
       setColor,
       setSelectedColor,
       undo,
-      redo
+      redo,
+      resetTheme
     } = this.props;
 
     return (
@@ -70,7 +72,7 @@ export default class ThemeColorsEditor extends React.Component {
             ];
           })}
         </dl>
-        <UndoRedoButtons {...{ undo, redo, themeCanUndo, themeCanRedo }} />
+        <UndoRedoButtons {...{ undo, redo, themeCanUndo, themeCanRedo, resetTheme }} />
       </div>
     );
   }
